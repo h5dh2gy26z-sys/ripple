@@ -1,4 +1,4 @@
-module github.com/ivan2kh/ripple-client
+module github.com/ivan2kh/ripple
 
 go 1.19
 
