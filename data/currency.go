@@ -27,8 +27,10 @@ func (c *Currency) UnmarshalJSON(data []byte) error {
 		}
 	}
 
-	// Convert the string to a 20-byte array directly
+	// Initialize the result array with all zeroes
 	var result [20]byte
+
+	// Copy the string into the array (truncate or pad with zeros as needed)
 	copy(result[:], []byte(str)) // Truncate or pad with zeros as needed
 	*c = result
 
