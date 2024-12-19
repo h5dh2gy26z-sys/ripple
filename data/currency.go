@@ -13,6 +13,28 @@ import (
 type Currency [20]byte
 type CurrencyType uint8
 
+// UnmarshalJSON parses both short codes (e.g., "EUR") and 20-byte hex strings for Currency.
+func (c *Currency) UnmarshalJSON(data []byte) error {
+	str := string(data)
+	str = strings.Trim(str, `"`) // Remove surrounding quotes
+
+	// Try to decode as hex if the length is 40 (20 bytes as hex)
+	if len(str) == 40 {
+		bytes, err := hex.DecodeString(str)
+		if err == nil { // Valid hex
+			copy(c[:], bytes)
+			return nil
+		}
+	}
+
+	// Convert the string to a 20-byte array directly
+	var result [20]byte
+	copy(result[:], []byte(str)) // Truncate or pad with zeros as needed
+	*c = result
+
+	return nil
+}
+
 const (
 	CT_XRP       CurrencyType = 0
 	CT_STANDARD  CurrencyType = 1
