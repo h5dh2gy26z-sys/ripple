@@ -1,7 +1,7 @@
 package data
 
 import (
-	. "github.com/anchorageoss/ripple-client/testing"
+	. "github.com/ivan2kh/ripple/testing"
 	. "gopkg.in/check.v1"
 )
 

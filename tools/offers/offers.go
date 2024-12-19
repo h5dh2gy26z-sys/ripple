@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/anchorageoss/ripple-client/data"
-	"github.com/anchorageoss/ripple-client/terminal"
-	"github.com/anchorageoss/ripple-client/websockets"
+	"github.com/ivan2kh/ripple/data"
+	"github.com/ivan2kh/ripple/terminal"
+	"github.com/ivan2kh/ripple/websockets"
 )
 
 const usage = `Usage: offers [ripple address] [options]
